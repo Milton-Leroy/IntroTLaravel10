@@ -4,6 +4,8 @@
             User Avatar
         </h2>
 
+        <img width="100px" height="100px" class="rounded-full" src="{{ "storage/$user->avatar" }}" alt="User avatar">
+
         <p class="mt-1 mb-4 text-sm text-gray-600 dark:text-gray-400">
             Add or update your user avatar
         </p>

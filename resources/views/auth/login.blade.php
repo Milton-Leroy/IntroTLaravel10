@@ -44,4 +44,17 @@
             </x-primary-button>
         </div>
     </form>
+
+    <form method="post" action="{{ route('login.github') }}" class="mt-4">
+        @csrf
+        
+        <button type="submit" class="flex items-center justify-center space-x-2 mx-24 px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none focus:border-blue-500 focus:ring-blue-500">
+            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 .25a8 8 0 0 0-2.54 15.602c.4.074.548-.174.548-.386 0-.19-.007-.693-.01-1.36-2.233.487-2.705-1.08-2.705-1.08-.365-.927-.89-1.174-.89-1.174-.727-.497.056-.487.056-.487.798.057 1.22.86 1.22.86.712 1.222 1.868.87 2.324.665.073-.516.281-.87.51-1.07-1.774-.2-3.637-.886-3.637-3.952 0-.874.312-1.59.824-2.155-.083-.2-.36-1.017.078-2.12 0 0 .67-.214 2.2.82a7.62 7.62 0 0 1 2-.27 7.62 7.62 0 0 1 2 .27c1.53-1.034 2.2-.82 2.2-.82.44 1.103.163 1.92.08 2.12.514.565.824 1.28.824 2.154 0 3.073-1.866 3.75-3.648 3.947.287.246.54.733.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.145.46.55.38A8.003 8.003 0 0 0 8 .25"></path>
+            </svg>
+            <span class="font-medium">Sign In with GitHub</span>
+        </button>
+
+    </form>
+
 </x-guest-layout>
