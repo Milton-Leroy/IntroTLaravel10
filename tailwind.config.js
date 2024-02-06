@@ -14,6 +14,9 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            margin: {
+                '200': '45rem', // Add your desired value here
+              },
         },
     },
 

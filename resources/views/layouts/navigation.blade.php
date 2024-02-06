@@ -17,6 +17,10 @@
                     </x-nav-link>
                 </div>
             </div>
+            
+            <div class="flex text-sm ml-200 font-medium border border-transparent leading-4 text-gray-500 rounded-md bg-white dark:text-gray-400 bg-white flex-col justify-center dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"">
+                <a href="{{ route('tickets.index') }}" class="rounded-lg px-2">Support Ticket</a>
+            </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">

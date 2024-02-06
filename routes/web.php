@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Avatarcontrolller;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TicketController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -70,6 +71,11 @@ Route::get('/auth/callback', function () {
     Auth::login($user);
 
     return redirect('/dashboard');
-    // $user->token
+    
 });
  
+Route::middleware('auth')->group(function () {
+
+    Route::resource('tickets', TicketController::class);
+    
+});
