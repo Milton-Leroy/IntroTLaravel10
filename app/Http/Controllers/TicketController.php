@@ -6,6 +6,9 @@ use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 Use Illuminate\Support\Str;
 use App\Models\Ticket;
+use App\Models\User;
+use App\Notifications\TicketUpdateNotification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class TicketController extends Controller
@@ -15,7 +18,11 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::get();;
+        $user = Auth::user();
+
+        //shows only the tickets of the logged in user but if an admin shows all tickets
+
+        $tickets = $user->isAdmin ? Ticket::latest()->get() : $user->tickets;
 
         return view('ticket.index', compact('tickets'));
     }
@@ -79,6 +86,12 @@ class TicketController extends Controller
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
         $ticket->update($request->except('attachment'));
+
+        if($request->has('status')){
+
+            $ticket->user->notify(new TicketUpdateNotification($ticket));
+            
+        }
 
         if($request->file('attachment')){
 
